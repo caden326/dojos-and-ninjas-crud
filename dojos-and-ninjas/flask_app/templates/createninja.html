@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <title>Dojos</title>
+</head>
+
+<body>
+    <div class ="container">
+
+        
+        <a href="/" class="btn btn-secondary">home</a> 
+        <h1>Add a Ninja</h1>
+
+        <form action="/dojo/create_ninja" method="POST">
+            <label for="fname"> First Name </label>
+            <input type="text" name="first_name">
+
+            <label for="lname"> Last Name </label>
+            <input type="text" name="last_name">
+
+            <label for="em"> Age </label>
+            <input type="text" name="age">
+
+            <label for="dojos">Choose a Dojo:</label>
+            <select name="dojo_id" id="dojos">
+                {% for one_dojo in dojos %}
+
+                <option value="{{one_dojo.id}}">{{one_dojo.name}}</option>
+                {% endfor %}
+            </select>
+            <input type="submit" class='btn btn-primary' value="Add Ninja">
+        </form>
+    </div>
+
+
+
+
+    
+</body>
+</html>

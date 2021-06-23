@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <title>Dojos</title>
+</head>
+
+<body>
+
+
+
+
+
+    <div class="container">
+        <h1>All Dojos</h1>
+
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">id</th>
+                    <th scope="col">Dojo Name</th>
+                </tr>
+            </thead>
+            {% for one_dojo in dojos %}
+            <tbody>
+                <tr>
+                    <th scope="row">{{one_dojo.id}}</th>
+                    <td><a href="/showdojo/{{one_dojo.id}}">{{one_dojo.name}}</a></td>
+                    <td>
+
+                    </td>
+                </tr>
+            </tbody>
+            {% endfor %}
+        </table>
+
+
+    </div>
+
+    <div class="container">
+        <h1>Add dojo</h1>
+        <form action="/dojo/create_dojo" method="POST">
+            <label for="name"> Name </label>
+            <input type="text" name="name">
+
+            <input type="submit" class='btn btn-primary' value="Add Dojo">
+
+        </form>
+        <a href="/makeninja">Add Ninja</a>
+
+            
+    </div>
+
+
+
+
+</body>
+
+</html>
